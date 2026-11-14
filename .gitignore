@@ -43,3 +43,6 @@ next-env.d.ts
 /lib/generated/prisma
 /prisma/seed.ts
 /prisma/deletion-seed.ts
+
+# documentations
+/docs/*
