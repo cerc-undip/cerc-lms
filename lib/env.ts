@@ -15,9 +15,14 @@ export const env = createEnv({
 	},
 	client: {
 		NEXT_PUBLIC_S3_BUCKET_NAME_IMAGES: z.string().min(1),
+		// Dev Playground: URL endpoint S3 lokal (MinIO)
+		NEXT_PUBLIC_S3_ENDPOINT_URL: z.string().optional(),
 	},
 	experimental__runtimeEnv: {
 		NEXT_PUBLIC_S3_BUCKET_NAME_IMAGES:
 			process.env.NEXT_PUBLIC_S3_BUCKET_NAME_IMAGES,
+		// Dev Playground: URL endpoint S3 lokal (MinIO)
+		NEXT_PUBLIC_S3_ENDPOINT_URL:
+			process.env.NEXT_PUBLIC_S3_ENDPOINT_URL,
 	},
 });

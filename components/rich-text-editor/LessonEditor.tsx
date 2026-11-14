@@ -17,7 +17,7 @@ import { TableCell } from "@tiptap/extension-table-cell";
 import { TableHeader } from "@tiptap/extension-table-header";
 import Compressor from "compressorjs";
 import { toast } from "sonner";
-import { env } from "@/lib/env";
+import { constructUrl } from "@/hooks/use-construct-url";
 
 const DEFAULT_FONT_FAMILY = "Inter";
 const DEFAULT_FONT_SIZE = "16px";
@@ -100,7 +100,10 @@ export function useLessonEditorConfig(field: { value?: string; onChange: (value:
 
 							toast.dismiss(uploadToast);
 
-							const publicUrl = `https://${env.NEXT_PUBLIC_S3_BUCKET_NAME_IMAGES}.t3.storage.dev/${key}`;
+							// Dev Playground: Resolusi URL dinamis untuk MinIO lokal / S3
+							const publicUrl = constructUrl(key);
+							// Production:
+							// const publicUrl = `https://${env.NEXT_PUBLIC_S3_BUCKET_NAME_IMAGES}.t3.storage.dev/${key}`;
 
 							resolve(publicUrl);
 						})

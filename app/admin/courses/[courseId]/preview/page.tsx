@@ -13,6 +13,7 @@ import { BookOpen, ArrowLeft, Eye, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { DivisionBadge } from "@/components/general/DivisionBadge";
+import { constructUrl } from "@/hooks/use-construct-url";
 import { RichTextRenderer } from "@/components/general/RichTextRenderer";
 import { Division } from "@/lib/generated/prisma/enums";
 import {
@@ -145,7 +146,10 @@ export default async function AdminCoursePreviewPage({
 					<Card className="sticky top-24 overflow-hidden border-2 border-primary/10 shadow-lg">
 						<div className="relative w-full aspect-video">
 							<Image
-								src={`https://${process.env.NEXT_PUBLIC_S3_BUCKET_NAME_IMAGES}.t3.storage.dev/${course.fileKey}`}
+								// Dev Playground: Resolusi URL dinamis untuk MinIO lokal / S3
+								src={constructUrl(course.fileKey)}
+								// Production:
+								// src={`https://${process.env.NEXT_PUBLIC_S3_BUCKET_NAME_IMAGES}.t3.storage.dev/${course.fileKey}`}
 								alt={course.title}
 								fill
 								className="object-cover"

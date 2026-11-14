@@ -17,6 +17,7 @@ import { Division } from "@/lib/generated/prisma/enums";
 import { requireSession } from "@/app/data/auth/require-session";
 import { checkUserEnrollment } from "@/app/data/user/check-enrollment";
 import { EnrollmentAction } from "./_components/EnrollmentAction";
+import { constructUrl } from "@/hooks/use-construct-url";
 import {
 	Accordion,
 	AccordionContent,
@@ -104,7 +105,10 @@ export default async function CourseDetailPage({
 					<Card className="sticky top-24 overflow-hidden border-2 border-primary/10 shadow-lg">
 						<div className="relative w-full aspect-video">
 							<Image
-								src={`https://${process.env.NEXT_PUBLIC_S3_BUCKET_NAME_IMAGES}.t3.storage.dev/${course.fileKey}`}
+								// Dev Playground: Resolusi URL dinamis untuk MinIO lokal / S3
+								src={constructUrl(course.fileKey)}
+								// Production:
+								// src={`https://${process.env.NEXT_PUBLIC_S3_BUCKET_NAME_IMAGES}.t3.storage.dev/${course.fileKey}`}
 								alt={course.title}
 								fill
 								className="object-cover"

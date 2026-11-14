@@ -82,3 +82,9 @@ CERC LMS is an internal learning platform that allows members to:
 ## Support
 
 For questions or issues, contact your division mentor or the CERC admin team.
+
+---
+
+### Notes:
+
+Kode Program yang dirubah untuk keperluan dev di tandai dengan tag `Dev Playground:`. Search untuk mencari.
