@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
 	images: {
 		remotePatterns: [
 			{
-				hostname: "cerc-lms-bucket.t3.storage.dev",
+				hostname: "cerc-lms-new.t3.storage.dev",
 				port: "",
 				protocol: "https",
 			},

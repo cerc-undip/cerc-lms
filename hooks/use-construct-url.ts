@@ -1,5 +1,5 @@
-import { env } from "@/lib/env";
-
 export function useConstructUrl(key: string) {
-	return `https://${env.NEXT_PUBLIC_S3_BUCKET_NAME_IMAGES}.t3.storage.dev/${key}`;
+	if (!key) return "";
+	const encodedKey = key.split("/").map(encodeURIComponent).join("/");
+	return `/api/s3/file/${encodedKey}`;
 }

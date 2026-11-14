@@ -104,7 +104,7 @@ export default async function CourseDetailPage({
 					<Card className="sticky top-24 overflow-hidden border-2 border-primary/10 shadow-lg">
 						<div className="relative w-full aspect-video">
 							<Image
-								src={`https://${process.env.NEXT_PUBLIC_S3_BUCKET_NAME_IMAGES}.t3.storage.dev/${course.fileKey}`}
+								src={`/api/s3/file/${course.fileKey.split("/").map(encodeURIComponent).join("/")}`}
 								alt={course.title}
 								fill
 								className="object-cover"
