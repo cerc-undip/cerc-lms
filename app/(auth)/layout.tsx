@@ -11,7 +11,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
 					href="/"
 				>
 					<Image
-						src="https://cerc-lms-bucket.t3.storage.dev/Logo-CERC-presspadding.webp"
+						src="/Logo-CERC-presspadding.webp"
 						width={32}
 						height={32}
 						alt="Logo"
