@@ -132,7 +132,9 @@ async function authMiddleware(request: NextRequest) {
 }
 
 export const config = {
-	matcher: ["/((?!_next/static|_next/image|favicon.ico|api/auth).*)"],
+	matcher: [
+		"/((?!_next/static|_next/image|favicon.ico|api/auth|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)",
+	],
 };
 
 const proxy = createMiddleware(aj, async (request: NextRequest) => {
